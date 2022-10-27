@@ -1,0 +1,69 @@
+Color::Color() {
+	setRed(0);
+	setGreen(0);
+	setBlue(0);
+}
+
+Color::Color(int redVal, int greenVal, int blueVal) {
+	red = redVal;
+		green = greenVal;
+		blue = blueVal;
+}
+
+void Color::setRed(int redVal) {
+	if (redVal < 0) {
+		redVal = 0;
+	}
+	else if (redVal > 256) {
+		redVal = 256;
+	}
+	red = redVal;
+}
+
+int Color::getRed() {
+	return red;
+}
+
+void setGreen(int greenVal) {
+	if (greenVal < 0) {
+		greenVal = 0;
+	}
+	else if (greenVal > 256) {
+		greenVal = 256;
+	}
+}
+
+int Color::getGreen() {
+	return green;
+}
+
+void Color::setBlue(int blueVal) {
+	if (blueVal < 0) {
+		blueVal = 0;
+	}
+	else if (blueVal > 256) {
+		blueVal = 256;
+	}
+}
+
+int Color::getBlue() {
+	return blue; 
+}
+
+void Color::read(istream& ins) {
+	ins >> red >> green >> blue;
+}
+
+void Color::write(ostream& outs) {
+	outs << checkRange(red) << checkRange(green) << checkRange(blue);
+}
+
+int Color::checkRange(int val) {
+	if (val < 0) {
+		return 0;
+	}
+	else if (val > 255) {
+		return 255;
+	}
+	return val;
+}
