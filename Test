@@ -1,0 +1,45 @@
+
+void test_Color() {
+    // test of default constructor 
+    Color color;
+    cout << "expected 0 0 0, actual: " << color << endl;
+    // test of non-default constructor 
+    Color color2(255, 26, 152);
+    cout << "expected 255 26 152 actual: " << color2 << endl;
+    // testing setRed, setBlue, & setGreen
+    color.setRed(5);
+    color.setBlue(6);
+    color.setGreen(7);
+
+    // test of member functions getRed, getBlue, getGreen
+    cout << "expected: (5,6,7), actual: ";
+    cout << "(" << color.getRed()
+        << "," << color.getBlue()
+        << "," << color.getGreen()
+        << ")" << endl;
+}
+
+void test_Circle() {
+    Point pt1(5, 25);
+    Point pt2(0, 0);
+    Color color1(245, 47, 23);
+    Color color2(255, 0, 255);
+    Circle Circle(pt2, 25, color2);
+    Circle.setCenter(pt1);
+    Circle.setColor(color1);
+    Circle.setRadius(40);
+    cout << "expected 5,25 40 245,47,23" << Circle.getCenter() << " " << Circle.getRadius() << " " << Circle.getColor();
+}
+
+void test_Line() {
+    Point pt1(0, 0);
+    Point pt2(100, 100);
+    Color color1(255, 0, 0);
+    Line line(pt1, pt2, color1);
+    Point pt3(50, 50);
+    Point pt4(75, 75);
+    Color color2(0,0,255);
+    line.setStart(pt3);
+    line.setEnd(pt4);
+    line.setColor(color2);
+    cout << "Expected: 50,50 75,75 0,0,255" << line.getStart() << " " << line.getEnd() << " " << line.getColor();
