@@ -65,3 +65,43 @@ void test_Triangle() {
         cout << "Expected: 75,100 100,75 75,75 255,0,0" << triangle.getVertexOne() << " " << triangle.getVertexTwo() <<
             " " << triangle.getVertexThree() << " " << triangle.getVertexOneColor(); 
 }
+
+void test_Rectangle() {
+    Point p1;
+    Point p1point2;
+    Point p2(1, 1);
+    Color c1(50, 50, 50);
+    Color c2(100, 100, 100);
+    Color c3(255, 255, 255);
+    Color c4(0, 0, 0);
+
+    Rectangle rec1(p1, p2, c1);
+    ifstream input_file;
+    input_file.open("rectangles.txt");
+    rec1.read(input_file);
+    cout << "recl is: " << rec1 << endl;
+
+    Rectangle rec2;
+    cout << "rec2 is: " << rec2 << endl;
+
+    Rectangle rec3(p1, p2, c1);
+    cout << "rec3 is: " << rec3 << endl;
+
+    Rectangle rec4(p1, p2, c1, c2, c3, c4);
+    cout << "rec4 is: " << rec4 << endl;
+
+    Rectangle rec4points5(p1, p1, c1, c1, c1, c1);
+    cout << "rec4.5 is: " << rec4points5 << endl;
+
+    Rectangle rec5
+        rec5.setColor(c4);
+
+    Rectangle rec6;
+    rec6.setStart(p1);
+    cout << "rec6 start is: " << rec6.getStart() << endl;
+    rec6.setEnd(p2);
+    cout << "rec6 end is: " << rec6.getEnd() << endl;
+}
+
+
+
