@@ -1,5 +1,7 @@
 Color::Color() {
-
+	blue = 0;
+	red = 0;
+	green = 0;
 }
 
 Color::Color(int redVal, int greenVal, int blueVal) {
