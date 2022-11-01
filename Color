@@ -45,6 +45,7 @@ void Color::setBlue(int blueVal) {
 	else if (blueVal > 256) {
 		blueVal = 256;
 	}
+	blue = blueVal;
 }
 
 int Color::getBlue() {
