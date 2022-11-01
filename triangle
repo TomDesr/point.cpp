@@ -94,9 +94,11 @@ Color Triangle::getVertexThreeColor() {
 
 void Triangle::read(istream& ins) {
     ins >> vertexOne >> vertexTwo >> vertexThree >> vertexOneColor;
+    if (ins.fail()) {
+        ins.clear();
         ins >> vertexOne >> vertexOneColor >> vertexTwo >> vertexTwoColor >> vertexThree >> vertexThreeColor;
+    }
 }
-
 void Triangle::write(ostream& outs) {
     outs << vertexOne << " " << vertexOneColor << " " << vertexTwo << " " << vertexTwoColor << " " << vertexThree << " " << vertexThreeColor;
 }
