@@ -21,9 +21,10 @@ void test_Color() {
 
 void test_Circle() {
     Point pt1(5, 25);
-    Point pt2(0, 0);
+    Point pt2;
+    cout <<"Expected: 0,0 5,25" << pt2 << " " << pt1;
     Color color1(245, 47, 23);
-    Color color2(255, 0, 255);
+    Color color2;
     Circle Circle(pt2, 25, color2);
     Circle.setCenter(pt1);
     Circle.setColor(color1);
@@ -32,9 +33,9 @@ void test_Circle() {
 }
 
 void test_Line() {
-    Point pt1(0, 0);
+    Point pt1;
     Point pt2(100, 100);
-    Color color1(255, 0, 0);
+    Color color1;
     Line line(pt1, pt2, color1);
     Point pt3(50, 50);
     Point pt4(75, 75);
@@ -43,3 +44,24 @@ void test_Line() {
     line.setEnd(pt4);
     line.setColor(color2);
     cout << "Expected: 50,50 75,75 0,0,255" << line.getStart() << " " << line.getEnd() << " " << line.getColor();
+}
+
+
+void test_Triangle() {
+        Point pt1;
+        Color color1;
+        Color color2(255, 0, 0);
+        Point pt2(50,0);
+        Point pt3(0,50);
+        Point pt4(75, 100);
+        Point pt5(100, 75);
+        Point pt6(75, 75);
+
+        Triangle triangle(pt1, pt2, pt3, color1);
+        triangle.setVertexOne(pt4);
+        triangle.setVertexTwo(pt5);
+        triangle.setVertexThree(pt6);
+        triangle.setColor(color2);
+        cout << "Expected: 75,100 100,75 75,75 255,0,0" << triangle.getVertexOne() << " " << triangle.getVertexTwo() <<
+            " " << triangle.getVertexThree() << " " << triangle.getVertexOneColor(); 
+}
