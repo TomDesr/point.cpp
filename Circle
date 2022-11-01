@@ -1,5 +1,9 @@
 Circle::Circle() {
-
+    Point pt1(0, 0);
+    Color color1(0, 0, 0);
+    radius = 0;
+    center = pt1;
+    color = color1;
 }
 
 Circle::Circle(Point pt, int r, Color c) {
