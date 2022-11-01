@@ -22,9 +22,18 @@ using namespace std;
 //       setVertexOneColor, getVertexOneColor, setVertexTwoColor,
 //       getVertexTwoColor, setVertexThreeColor, getVertexThreeColor,
 //       read, write.
-Triangle::Triangle() {
 
+Triangle::Triangle() {
+    Point pt1;
+    Color color1;
+    vertexOne = pt1;
+    vertexTwo = pt1;
+    vertexThree = pt1;
+    vertexOneColor = color1;
+    vertexTwoColor = color1;
+    vertexThreeColor = color1;
 }
+
 Triangle::Triangle(Point pt1, Point pt2, Point pt3, Color color) {
     pt1 = vertexOne;
     pt2 = vertexTwo;
