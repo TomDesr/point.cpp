@@ -5,8 +5,8 @@
  * EECS 183
  * Project 4: CoolPics
  *
- * <Audrey Eng>
- * <areng>
+ * <#Name(s)#>
+ * <#uniqname(s)#>
  *
  * <#Description#>
  */
@@ -128,76 +128,70 @@ void coolPics()
 
     printCloser();
     
+    return;
 }
 
 void writeFile(const Graphics& drawer)
 {
-        string fileName;
-        cin >> fileName;
-        fileName += ".bmp";
-
-        drawer.writeFile(fileName);
-        cout << "[Wrote " << fileName << "]" << endl;
-
     // TODO: implement
     // This will make use of Graphics::writeFile()
+    string name;
+    cin >> name;
+    string filename = name + ".bmp";
+    drawer.writeFile(filename);
+    cout << "[Wrote" << filename << "]" << endl;
+
 }
 
 void loadFile(Graphics& drawer)
 {
-    {
-        ifstream inFS;
-        string fileName = openFile(inFS);
-        char shapeType;
-        string errorLine;
-
-        while (!inFS.eof()) {
-            Circle circle;
-            Line line;
-            Rectangle rectangle;
-            Triangle triangle;
-
-            inFS >> shapeType;
-
-            switch (shapeType) {
-            case 'C':
-                inFS >> circle;
-                line.draw(drawer);
-                break;
-
-            case 'L':
-                inFS >> line;
-                line.draw(drawer);
-                break;
-
-            case 'R':
-                inFS >> rectangle;
-                rectangle.draw(drawer);
-                break;
-
-            case 'T':
-                inFS >> triangle;
-                triangle.draw(drawer);
-                break;
-
-            default:
-                getline(inFS, errorLine);
-                drawer.clear();
-                cout << "Error in input file: " << shapeType << errorLine << endl;
-            }
-            inFS.close();
+    // TODO: implement
+    ifstream object;
+    string filename;
+    filename = openFile(object);
+    char shape;
+    object >> shape;
+    Line line1;
+    Triangle triangle1;
+    Circle circle1;
+    Rectangle rectangle1;
+    while (object.good()) {
+        if (shape == 'T') {
+            triangle1.draw(drawer);
         }
-        cout << "[Loaded " << fileName << "]" << endl;
-    }
-
-    string tolower(string str) 
-    {
-        for (int x = 0; x < str.length(); x++) {
-            str[x] = tolower(str[x]);
+        else if (shape == 'L') {
+            object >> line1;
+            line1.draw(drawer);
         }
-        return str;
+        else if (shape == 'C') {
+            object >> circle1;
+            circle1.draw(drawer);
+        }
+        else if (shape == 'R') {
+            object >> rectangle1;
+            rectangle1.draw(drawer);
+        }
+        else {
+            string temp;
+            getline(object, temp);
+            drawer.clear();
+            cout << "Error in input file: " << shape << temp << endl;
+        }
+        object >> shape;
     }
+    object.close();
+    
+    cout << "[Loaded " << filename << "]" << endl;
+}
 
+string tolower(string str)
+{
+    // TODO: implement
+    for (int x = 0; x < str.length(); x++) {
+        str[x] = tolower(str[x]);
+    }
+    return str;
+}
 
 
 // Don't change the implementations below!
