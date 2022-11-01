@@ -24,13 +24,14 @@ int Color::getRed() {
 	return red;
 }
 
-void setGreen(int greenVal) {
+void Color::setGreen(int greenVal) {
 	if (greenVal < 0) {
 		greenVal = 0;
 	}
 	else if (greenVal > 256) {
 		greenVal = 256;
 	}
+	green = greenVal;
 }
 
 int Color::getGreen() {
