@@ -21,8 +21,8 @@ using namespace std;
 // TODO: implement two constructors, setCenter, getCenter, setColor, getColor,
 //       setRadius, getRadius, read, write.
 Circle::Circle() {
-    Point pt1;
-    Color color1;
+    Point pt1(0, 0);
+    Color color1(0, 0, 0);
     radius = 0;
     center = pt1;
     color = color1;
