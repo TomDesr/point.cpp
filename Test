@@ -1,3 +1,69 @@
+/**
+ * test.cpp
+ * Project UID 2e6ea4e086ea6a06753e819c30923369
+ *
+ * EECS 183
+ * Project 4: CoolPics
+ *
+ * <#Name(s)#>
+ * <#uniqname(s)#>
+ *
+ * Contains functions for testing classes in the project. 
+ */
+
+#include "Graphics.h"
+#include "Circle.h"
+#include "Color.h"
+#include "Line.h"
+#include "Point.h"
+#include "Rectangle.h"
+#include "Shape.h"
+#include "Triangle.h"
+
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+void test_Circle();
+void test_Color();
+void test_Line();
+void test_Point();
+void test_Triangle();
+void test_Rectangle();
+
+void startTests() {
+    test_Circle();
+    test_Color();
+    test_Line();
+    test_Point();
+    test_Triangle();
+    test_Rectangle();
+    return;
+}
+
+void test_Point() {
+    // test of default constructor
+    Point p1;
+    cout << "Expected: (0,0), actual: " << p1 << endl;
+    
+    // test of the non-default constructor
+    Point p2(3, 9);
+    cout << "Expected: (3,9), actual: " << p2 << endl;
+
+    // test of member function: setX()
+    p1.setX(5);
+    // test of member function: setY()
+    p1.setY(3);
+
+    // test of member functions getX() and getY()
+    cout << "Expected: (5,3), actual: ";
+    cout << "( " << p1.getX()
+         << ", " << p1.getY()
+         << " )" << endl;
+    
+    return;
+}
 
 void test_Color() {
     // test of default constructor 
@@ -7,12 +73,12 @@ void test_Color() {
     Color color2(255, 26, 152);
     cout << "expected 255 26 152 actual: " << color2 << endl;
     // testing setRed, setBlue, & setGreen
+    int blue = 6;
     color.setRed(5);
-    color.setBlue(6);
+    color.setBlue(blue);
     color.setGreen(7);
-
     // test of member functions getRed, getBlue, getGreen
-    cout << "expected: (5,6,7), actual: ";
+    cout << "expected: (0,6,7), actual: ";
     cout << "(" << color.getRed()
         << "," << color.getBlue()
         << "," << color.getGreen()
@@ -20,19 +86,24 @@ void test_Color() {
 }
 
 void test_Circle() {
+    Circle Circle2;
+    cout << Circle2;
     Point pt1(5, 25);
     Point pt2;
-    cout <<"Expected: 0,0 5,25" << pt2 << " " << pt1;
     Color color1(245, 47, 23);
     Color color2;
-    Circle Circle(pt2, 25, color2);
+    int Radius = 5;
+    Circle Circle(pt2, 2, color2);
     Circle.setCenter(pt1);
     Circle.setColor(color1);
-    Circle.setRadius(40);
-    cout << "expected 5,25 40 245,47,23" << Circle.getCenter() << " " << Circle.getRadius() << " " << Circle.getColor();
+    Circle.setRadius(Radius);
+    cout << "expected 5,25 40 245,47,23" << Circle.getCenter() << " " << 
+        Circle.getRadius() << " " << Circle.getColor() << endl;
 }
 
 void test_Line() {
+    Line Line2;
+    cout << Line2;
     Point pt1;
     Point pt2(100, 100);
     Color color1;
@@ -43,14 +114,18 @@ void test_Line() {
     line.setStart(pt3);
     line.setEnd(pt4);
     line.setColor(color2);
-    cout << "Expected: 50,50 75,75 0,0,255" << line.getStart() << " " << line.getEnd() << " " << line.getColor();
+    cout << "Expected: 50,50 75,75 0,0,255" << line.getStart() << " " 
+        << line.getEnd() << " " << line.getColor() << endl;
 }
 
 
 void test_Triangle() {
+    Triangle triangle2;
+    cout << triangle2;
         Point pt1;
         Color color1;
         Color color2(255, 0, 0);
+        Color color3(255, 0, 255);
         Point pt2(50,0);
         Point pt3(0,50);
         Point pt4(75, 100);
@@ -62,8 +137,9 @@ void test_Triangle() {
         triangle.setVertexTwo(pt5);
         triangle.setVertexThree(pt6);
         triangle.setColor(color2);
-        cout << "Expected: 75,100 100,75 75,75 255,0,0" << triangle.getVertexOne() << " " << triangle.getVertexTwo() <<
-            " " << triangle.getVertexThree() << " " << triangle.getVertexOneColor(); 
+        triangle.setVertexThreeColor(color3);
+        cout << "Expected: 75,100 100,75 75,75 255,0,0" << "  actual:" << triangle.getVertexOne() << " " << triangle.getVertexTwo() <<
+            " " << triangle.getVertexThree() << " " << triangle.getVertexOneColor() << " " << triangle.getVertexThreeColor() << endl;
 }
 
 void test_Rectangle() {
@@ -93,15 +169,14 @@ void test_Rectangle() {
     Rectangle rec4points5(p1, p1, c1, c1, c1, c1);
     cout << "rec4.5 is: " << rec4points5 << endl;
 
-    Rectangle rec5
+    Rectangle rec5;
         rec5.setColor(c4);
+        cout << rec5.getColorTopRight();
 
     Rectangle rec6;
     rec6.setStart(p1);
     cout << "rec6 start is: " << rec6.getStart() << endl;
     rec6.setEnd(p2);
     cout << "rec6 end is: " << rec6.getEnd() << endl;
+    cout << rec6;
 }
-
-
-
