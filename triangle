@@ -22,7 +22,6 @@ using namespace std;
 //       setVertexOneColor, getVertexOneColor, setVertexTwoColor,
 //       getVertexTwoColor, setVertexThreeColor, getVertexThreeColor,
 //       read, write.
-
 Triangle::Triangle() {
     Point pt1;
     Color color1;
@@ -33,12 +32,13 @@ Triangle::Triangle() {
     vertexTwoColor = color1;
     vertexThreeColor = color1;
 }
-
 Triangle::Triangle(Point pt1, Point pt2, Point pt3, Color color) {
     pt1 = vertexOne;
     pt2 = vertexTwo;
     pt3 = vertexThree;
     color = vertexOneColor;
+    color = vertexTwoColor;
+    color = vertexThreeColor;
 }
 
 Triangle::Triangle(Point pt1, Color color1,
@@ -52,13 +52,13 @@ Triangle::Triangle(Point pt1, Color color1,
     color3 = vertexThreeColor;
 }
 void Triangle::setColor(Color color) {
-    color = vertexOneColor;
-    color = vertexTwoColor;
-    color = vertexThreeColor;
+    vertexOneColor = color;
+    vertexTwoColor = color;
+    vertexThreeColor = color;
 }
 
 void Triangle::setVertexOne(Point pt) {
-    pt = vertexOne;
+     vertexOne = pt;
 }
 
 Point Triangle::getVertexOne() {
@@ -66,14 +66,14 @@ Point Triangle::getVertexOne() {
 }
 
 void Triangle::setVertexOneColor(Color color) {
-    color = vertexOneColor;
+    vertexOneColor = color;
 }
 Color Triangle::getVertexOneColor() {
     return vertexOneColor;
 }
 
 void Triangle::setVertexTwo(Point pt) {
-    pt = vertexTwo;
+    vertexTwo = pt;
 }
 
 Point Triangle::getVertexTwo() {
@@ -81,13 +81,13 @@ Point Triangle::getVertexTwo() {
 }
 
 void Triangle::setVertexTwoColor(Color color) {
-    color = vertexTwoColor;
+    vertexTwoColor = color;
 }
 Color Triangle::getVertexTwoColor() {
     return vertexTwoColor;
 }
 void Triangle::setVertexThree(Point pt) {
-    pt = vertexThree;
+    vertexThree = pt;
 }
 
 Point Triangle::getVertexThree() {
@@ -95,7 +95,7 @@ Point Triangle::getVertexThree() {
 }
 
 void Triangle::setVertexThreeColor(Color color) {
-    color = vertexThreeColor;
+    vertexThreeColor = color;
 }
 Color Triangle::getVertexThreeColor() {
     return vertexThreeColor;
@@ -108,15 +108,10 @@ void Triangle::read(istream& ins) {
         ins >> vertexOne >> vertexOneColor >> vertexTwo >> vertexTwoColor >> vertexThree >> vertexThreeColor;
     }
 }
+
 void Triangle::write(ostream& outs) {
     outs << vertexOne << " " << vertexOneColor << " " << vertexTwo << " " << vertexTwoColor << " " << vertexThree << " " << vertexThreeColor;
 }
-// IDK what the drawer is tbh 
-void draw(Graphics& drawer) {
-
-}
-// Your code goes above this line.
-// Don't change the implementations below!
 
 istream& operator >> (istream& ins, Triangle& tri)
 {
