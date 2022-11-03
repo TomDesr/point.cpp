@@ -31,8 +31,8 @@ void Color::setRed(int redVal) {
 	if (redVal < 0) {
 		redVal = 0;
 	}
-	else if (redVal > 256) {
-		redVal = 256;
+	else if (redVal > 255) {
+		redVal = 255;
 	}
 	red = redVal;
 }
@@ -45,8 +45,8 @@ void Color::setGreen(int greenVal) {
 	if (greenVal < 0) {
 		greenVal = 0;
 	}
-	else if (greenVal > 256) {
-		greenVal = 256;
+	else if (greenVal > 255) {
+		greenVal = 255;
 	}
 	green = greenVal;
 }
@@ -59,8 +59,8 @@ void Color::setBlue(int blueVal) {
 	if (blueVal < 0) {
 		blueVal = 0;
 	}
-	else if (blueVal > 256) {
-		blueVal = 256;
+	else if (blueVal > 255) {
+		blueVal = 255;
 	}
 	blue = blueVal;
 }
