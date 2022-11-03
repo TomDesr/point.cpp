@@ -106,8 +106,8 @@ void Rectangle::read(istream& ins) {
     if (ins.fail()) {
         ins.clear();
         colorTopRight = colorTopLeft;
-        colorBottomRight = colorBottomRight;
-        colorBottomLeft = colorBottomLeft;
+        colorBottomRight = colorTopLeft;
+        colorBottomLeft = colorTopLeft;
     }
 }
 void Rectangle::write(ostream& outs) {
